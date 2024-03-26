@@ -5,20 +5,36 @@ Nota es menor a 4 - LIBRE
 Nota es menor a 7 y no es LIBRE - REGULAR 
 Nota mayor que 6  - PROMOCIONADO. 
 
-* Mejorar el ejercicio anterior agregando un return de mensaje de error si la nota es menor que 1 o mayor que 10.
+- Mejorar el ejercicio anterior agregando un return de mensaje de error si la nota es menor que 1 o mayor que 10.
+
+- Mejorar el ejercicio anterior, recibiendo ahora 3 notas 
+por parámetro, calcular el promedio y en base a este retornar el estado 
+del alumno.
 */
 
-function calcularEstado(nota) {
-  if (nota < 4 && nota >= 1) {
+function calcularEstado(nota1, nota2, nota3) {
+  if (
+    nota1 < 1 ||
+    nota1 > 10 ||
+    nota2 < 1 ||
+    nota2 > 10 ||
+    nota3 < 1 ||
+    nota3 > 10
+  ) {
+    return "Nota inválida. Ingrese una nota válida (>= 1 - <= 10)";
+  }
+
+  let suma = nota1 + nota2 + nota3;
+  let promedio = suma / 3;
+
+  if (promedio < 4) {
     return "LIBRE";
-  } else if (nota < 7 && nota >= 4) {
+  } else if (promedio < 7) {
     return "REGULAR";
-  } else if (nota > 6 && nota <= 10) {
-    return "PROMOCIONADO";
   } else {
-    return "Nota no válida. Ingrese un número válido para la nota";
+    return "PROMOCIONADO";
   }
 }
 
-let estado = calcularEstado();
+let estado = calcularEstado(-1, 7, 7);
 console.log(estado);
