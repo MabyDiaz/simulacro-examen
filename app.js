@@ -36,5 +36,5 @@ function calcularEstado(nota1, nota2, nota3) {
   }
 }
 
-let estado = calcularEstado(-1, 7, 7);
+let estado = calcularEstado(9, 9, 9);
 console.log(estado);
